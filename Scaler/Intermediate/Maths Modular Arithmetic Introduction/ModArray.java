@@ -4,7 +4,7 @@ public class ModArray {
     public int solve(ArrayList<Integer> A, int B) {
 
         // Brute Force: TLE
-        // Tc is O(n*B), Sc is O(1)
+        // Tc is O(n*n), Sc is O(1)
 
         // Optimized approach: Tc is O(n), Sc is O(1)
         long ans = 0;
