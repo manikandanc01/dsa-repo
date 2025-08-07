@@ -1,3 +1,43 @@
+/*
+ * Problem Description
+
+You are given a string A of size N consisting of lowercase alphabets.
+
+You can change at most B characters in the given string to any other lowercase alphabet such that the number of distinct characters in the string is minimized.
+
+Find the minimum number of distinct characters in the resulting string.
+
+
+Problem Constraints
+
+1 <= N <= 100000
+
+0 <= B <= N
+
+
+Input Format
+
+The first argument is a string A.
+The second argument is an integer B.
+
+Output Format
+
+Return an integer denoting the minimum number of distinct characters in the string.
+
+Example Input
+
+A = "abcabbccd"
+B = 3
+
+Example Output
+2
+
+Example Explanation
+
+We can change both 'a' and one 'd' into 'b'.So the new string becomes "bbcbbbccb".
+So the minimum number of distinct character will be 2.
+ */
+
 package Scaler.Intermediate.Strings;
 
 import java.util.Arrays;
@@ -34,7 +74,7 @@ public class ChangeCharacter {
         }
 
         int sz = freq.size();
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>(); // min heap
 
         // If we only want to iterate over the keys of the map, use freq.keySet()
         for (int frequency : freq.values()) {
@@ -52,51 +92,51 @@ public class ChangeCharacter {
 
         return count;
 
-      /*  
-        Map<Character, Integer> freq = new HashMap<>();
-        int n = A.length();
-        if (n == 1) {
-            return 1; // Handling edge cases are very important
-        }
-
-        for (char c : A.toCharArray()) {
-            if(!freq.containsKey(c)){
-              freq.put(c,0);
-            }
-
-            freq.put(c,freq.get(c)+1);
-        }
-
-        int sz = freq.size();
-        Pair[] pairList = new Pair[sz];
-
-        int idx = 0;
-        for(Map.Entry<Character, Integer> entry : freq.entrySet()){
-           char c = entry.getKey();
-           int frequency = entry.getValue();
-
-            Pair newPair = new Pair(c,frequency);
-            pairList[idx++] = newPair;
-        }
-
-        Arrays.sort(pairList, (a,b)->{
-          return a.frequency-b.frequency;
-        });
-
-        int count = sz;
-        int i = 0;
-        while(B>=0 && i<sz){
-           int currFreq = pairList[i].frequency;
-           B-=currFreq;
-           if(B>=0){
-             count--;
-            }
-           i++;
-        }
-
-        return count;
-
-        */
+        /*
+         * Map<Character, Integer> freq = new HashMap<>();
+         * int n = A.length();
+         * if (n == 1) {
+         * return 1; // Handling edge cases are very important
+         * }
+         * 
+         * for (char c : A.toCharArray()) {
+         * if(!freq.containsKey(c)){
+         * freq.put(c,0);
+         * }
+         * 
+         * freq.put(c,freq.get(c)+1);
+         * }
+         * 
+         * int sz = freq.size();
+         * Pair[] pairList = new Pair[sz];
+         * 
+         * int idx = 0;
+         * for(Map.Entry<Character, Integer> entry : freq.entrySet()){
+         * char c = entry.getKey();
+         * int frequency = entry.getValue();
+         * 
+         * Pair newPair = new Pair(c,frequency);
+         * pairList[idx++] = newPair;
+         * }
+         * 
+         * Arrays.sort(pairList, (a,b)->{
+         * return a.frequency-b.frequency;
+         * });
+         * 
+         * int count = sz;
+         * int i = 0;
+         * while(B>=0 && i<sz){
+         * int currFreq = pairList[i].frequency;
+         * B-=currFreq;
+         * if(B>=0){
+         * count--;
+         * }
+         * i++;
+         * }
+         * 
+         * return count;
+         * 
+         */
 
     }
 
